@@ -18,7 +18,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>de.codecentric.batch</groupId>
+			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-starter-batch-web</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
