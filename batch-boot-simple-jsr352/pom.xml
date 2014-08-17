@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.codecentric.batch</groupId>
-	<artifactId>batch-boot-file-to-db</artifactId>
+	<artifactId>batch-boot-simple-jsr352</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>batch-boot-file-to-db</name>
+	<name>batch-boot-simple-jsr352</name>
 	<description>Demo project</description>
 
 	<parent>
@@ -26,6 +26,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>javax.inject</groupId>
+		    <artifactId>javax.inject</artifactId>
+		    <version>1</version>
 		</dependency>
 	</dependencies>
 
