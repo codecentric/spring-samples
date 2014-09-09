@@ -20,7 +20,7 @@
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-starter-batch-web</artifactId>
-			<version>1.2.0.RELEASE</version>
+			<version>1.2.2.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -31,6 +31,15 @@
 		    <groupId>javax.inject</groupId>
 		    <artifactId>javax.inject</artifactId>
 		    <version>1</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-dbcp</groupId>
+		    <artifactId>commons-dbcp</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.batch</groupId>
+		    <artifactId>spring-batch-test</artifactId>
+		    <scope>test</scope>
 		</dependency>
 	</dependencies>
 
