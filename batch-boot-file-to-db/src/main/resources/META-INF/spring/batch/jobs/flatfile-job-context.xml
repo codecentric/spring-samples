@@ -2,9 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:batch="http://www.springframework.org/schema/batch"
+    xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd
-	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:annotation-config/>
 	
 	<bean id="reader" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
 		<property name="resource" value="#{jobParameters[pathToFile]}"></property>
@@ -24,11 +28,16 @@
 		</property>
 	</bean>
 
-	<bean id="processor" class="de.codecentric.batch.item.LogItemProcessor"/>
+	<bean id="processor" class="de.codecentric.batch.item.LogItemProcessor">
+		<property name="exampleService" ref="exampleService"/>
+	</bean>
+	
+	<bean id="exampleService" class="de.codecentric.batch.item.ExampleService"/>
+	<bean id="subExampleService" class="de.codecentric.batch.item.SubExampleService"/>
 
 	<bean id="writer" class="org.springframework.batch.item.database.JdbcBatchItemWriter">
 		<property name="sql" value="INSERT INTO PARTNER (NAME, EMAIL) VALUES (:name,:email)"/>
-		<property name="dataSource" ref="dataSource"/>
+		<property name="dataSource" ref="dataSourcePartner"/>
 		<property name="itemSqlParameterSourceProvider">
 			<bean class="org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider"/>
 		</property>
