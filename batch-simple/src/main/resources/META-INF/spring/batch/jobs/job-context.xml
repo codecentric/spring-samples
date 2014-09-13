@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:batch="http://www.springframework.org/schema/batch"
+    xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:annotation-config/>
+	
+	<bean id="reader" class="de.codecentric.batch.item.DummyItemReader"/>
+	<bean id="processor" class="de.codecentric.batch.item.LogItemProcessor">
+		<property name="exampleService" ref="exampleService"/>
+	</bean>
+	<bean id="writer" class="de.codecentric.batch.item.LogItemWriter"/>
+	
+	<batch:job id="simpleJob">
+		<batch:step id="step">			
+			<batch:tasklet>
+				<batch:chunk reader="reader" processor="processor" writer="writer" commit-interval="3" />
+			</batch:tasklet>
+		</batch:step>
+	</batch:job> 
+	
+	<bean id="exampleService" class="de.codecentric.batch.item.ExampleService"/>
+	<bean id="subExampleService" class="de.codecentric.batch.item.SubExampleService">
+		<!-- qualifier value="subExampleService"/-->
+	</bean>
+
+</beans>
