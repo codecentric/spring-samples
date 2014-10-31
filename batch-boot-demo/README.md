@@ -11,7 +11,7 @@ mvn spring-boot:run
 The default port is 8090. To start a job, use this curl command:
 
 ```shell
-curl --data 'jobParameters=pathToFile=classpath:partner-import.csv' http://localhost:8090/batch/operations/jobs/flatfileJob
+curl -X POST http://localhost:8090/batch/operations/jobs/simpleJob
 ```
 
 Get the status of the job:
