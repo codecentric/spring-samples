@@ -1,30 +1,29 @@
 package de.codecentric.soap.xmlvalidation;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.io.IOException;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.WebIntegrationTest;
-import org.springframework.core.io.Resource;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
 import de.codecentric.cxf.common.BootStarterCxfException;
 import de.codecentric.cxf.common.FaultType;
 import de.codecentric.cxf.soaprawclient.SoapRawClient;
 import de.codecentric.cxf.soaprawclient.SoapRawClientResponse;
 import de.codecentric.soap.TestApplication;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.io.Resource;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes=TestApplication.class)
-// @WebIntegrationTest-Configuration "server.port:XYZ" overrides the config of the embedded server, that is used (and re-used) in the Tests 
-// If you want to log the actual SOAP-Messages, e.g. by using TCP/IP-Monitor in Eclipse, just change port/url in dev-test.properties 
-@WebIntegrationTest("server.port:8080") 
+import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(
+		classes = TestApplication.class,
+		webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
+		properties = { "server.port:8092" }
+)
 public class WeatherServiceXmlErrorTest {
 
 	@Autowired
