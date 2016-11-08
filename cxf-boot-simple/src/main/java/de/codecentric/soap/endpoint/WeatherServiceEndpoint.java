@@ -22,7 +22,6 @@ public class WeatherServiceEndpoint implements WeatherService {
 
     private static de.codecentric.namespace.weatherservice.general.ObjectFactory objectFactoryGeneral = new de.codecentric.namespace.weatherservice.general.ObjectFactory();
     private static de.codecentric.namespace.weatherservice.datatypes.ObjectFactory objectFactoryDatatypes = new de.codecentric.namespace.weatherservice.datatypes.ObjectFactory();
-
     
     @Override
     public WeatherInformationReturn getWeatherInformation(String zip)
