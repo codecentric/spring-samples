@@ -51,7 +51,7 @@ public class CxfBootSimpleTestConfiguration {
     
     public String buildUrl() {
         // return something like http://localhost:8084/soap-api/WeatherSoapService
-        return "http://" + clientHost + ":" + clientPort + cxfAutoConfiguration.getBaseAndServiceEndingUrl();
+        return "http://" + clientHost + ":" + clientPort + cxfAutoConfiguration.baseAndServiceEndingUrl();
     }
     
     @Autowired
