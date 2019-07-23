@@ -1,0 +1,1 @@
+Samples for [cxf-spring-boot-starter](https://github.com/codecentric/cxf-spring-boot-starter) could be found in https://github.com/codecentric/cxf-spring-boot-starter/tree/master/cxf-spring-boot-starter-samples from now on.
