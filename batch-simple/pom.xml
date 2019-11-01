@@ -9,7 +9,7 @@
 	<url>http://docs.spring.io/spring-batch/${artifactId}</url>
 	<properties>
 		<spring.framework.version>4.0.6.RELEASE</spring.framework.version>
-		<spring.batch.version>3.0.1.RELEASE</spring.batch.version>
+		<spring.batch.version>4.2.0.RELEASE</spring.batch.version>
 	</properties>
 	<dependencies>
 		<dependency>
